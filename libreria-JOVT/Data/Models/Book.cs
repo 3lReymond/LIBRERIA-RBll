@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace libreria_JOVT.Data.Models
 {
@@ -14,5 +15,11 @@ namespace libreria_JOVT.Data.Models
         public string Autor { get; set; }
         public string ConverUrl { get; set; }
         public DateTime DateAdded { get; set; }
+
+        //propiedades de navegacion (en esta parte es donde "mapeamos")
+        public int PublisherId { get; set; }
+        public Publisher Publisher { get; set; }
+        public List<Book_Author> book_Authors { get; set; }
+
     }
 }
