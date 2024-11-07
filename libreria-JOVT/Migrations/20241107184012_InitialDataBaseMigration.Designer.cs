@@ -10,7 +10,7 @@ using libreria_JOVT.Data;
 namespace libreria_JOVT.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241106214021_InitialDataBaseMigration")]
+    [Migration("20241107184012_InitialDataBaseMigration")]
     partial class InitialDataBaseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
