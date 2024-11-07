@@ -1,4 +1,5 @@
 using libreria_JOVT.Data;
+using libreria_JOVT.Data.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,9 @@ namespace libreria_JOVT
             services.AddControllers();
             //Configurtar DBContext con SQL
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
+
+            //configurar el DBContext con SQL
+            services.AddTransient<BooksService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "libreria_JOVT", Version = "v1" });
@@ -60,6 +64,7 @@ namespace libreria_JOVT
             {
                 endpoints.MapControllers();
             });
+            AppDbInitializer.Seed(app);
         }
     }
 }
