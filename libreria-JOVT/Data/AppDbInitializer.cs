@@ -24,7 +24,6 @@ namespace libreria_JOVT.Data
                         DateRead = DateTime.Now.AddDays(-10),
                         Rate = 4,
                         Genero = "Bibliografia",
-                        Autor = "1st Autor",
                         ConverUrl = "https...",
                         DateAdded = DateTime.Now,
                     },
@@ -36,7 +35,6 @@ namespace libreria_JOVT.Data
                         DateRead = DateTime.Now.AddDays(-10),
                         Rate = 4,
                         Genero = "Bibliografia",
-                        Autor = "2nd Autor",
                         ConverUrl = "https...",
                         DateAdded = DateTime.Now,
                     });

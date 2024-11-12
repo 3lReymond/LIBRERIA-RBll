@@ -1,5 +1,6 @@
 ﻿using libreria_JOVT.Data.Models;
 using libreria_JOVT.Data.ViewModels;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace libreria_JOVT.Data.Models.Services
         {
             _context = context;
         }
-        public void AddBook(BookVM book)
+        //metodo para agregar un nuevo libro en la BD
+        public void AddBookWithAuthors(BookVM book)
         {
             var _book = new Book()
             {
@@ -23,16 +25,27 @@ namespace libreria_JOVT.Data.Models.Services
                 IsRead = book.IsRead,
                 DateRead = book.DateRead,
                 Rate = book.Rate,
-                Genero= book.Genero,
-                Autor = book.Autor,
+                Genero = book.Genero,
                 ConverUrl = book.ConverUrl,
-                DateAdded = DateTime.Now
+                DateAdded = DateTime.Now,
+                PublisherId = book.PublisherID
             };
             _context.Books.Add(_book);
             _context.SaveChanges();
+
+            foreach(var id in book.AutorIDs)
+            {
+                var _book_author = new Book_Author()
+                {
+                    BookId = _book.id,
+                    AuthorId = id
+                };
+                _context.Book_Authors.Add(_book_author);
+                _context.SaveChanges();
+            }
         }
-        //metodo que nos permite obtener la lista de todos los libros de la BD
-        public List<Book> GetAllBks() => _context.Books.ToList();
+    //metodo que nos permite obtener la lista de todos los libros de la BD
+    public List<Book> GetAllBks() => _context.Books.ToList();
         //Metodo que nos permite obtener el libro que estamos pidiendo de la BD
         public Book GetBookById(int bookid) => _context.Books.FirstOrDefault(n => n.id == bookid);
         
@@ -48,8 +61,8 @@ namespace libreria_JOVT.Data.Models.Services
                 _book.DateRead = book.DateRead;
                 _book.Rate = book.Rate;
                 _book.Genero = book.Genero;
-                _book.Autor = book.Autor;
                 _book.ConverUrl = book.ConverUrl;
+
                 _context.SaveChanges();
             }
             return _book;

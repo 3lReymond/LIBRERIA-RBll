@@ -30,10 +30,10 @@ namespace libreria_JOVT.Controllers
             return Ok(book);
         }
 
-        [HttpPost("add-book")]
-        public IActionResult AddBook([FromBody]BookVM book)
+        [HttpPost("add-book-with-authors")]
+        public IActionResult AddBook([FromBody] BookVM book)
         {
-            _booksService.AddBook(book);
+            _booksService.AddBookWithAuthors(book);
             return Ok();
         }
 
