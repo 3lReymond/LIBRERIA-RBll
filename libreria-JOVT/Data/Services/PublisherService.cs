@@ -13,7 +13,7 @@ namespace libreria_JOVT.Data.Services
         }
 
         //metodo para que nos permita agregar un nuevo editor a la BD
-        public void AddPublisher(PublisherVM publisher)
+        public Publisher AddPublisher(PublisherVM publisher)
         {
             var _publisher = new Publisher()
             {
@@ -21,7 +21,10 @@ namespace libreria_JOVT.Data.Services
             };
             _context.Publishers.Add(_publisher);
             _context.SaveChanges();
+            return _publisher;
         }
+
+        public Publisher GetPublisherByID(int id) => _context.Publishers.FirstOrDefault(n => n.Id == id);
 
         public PublisherWithBooksAndAuthorsVM GetPublisherData(int publisherId)
         {
