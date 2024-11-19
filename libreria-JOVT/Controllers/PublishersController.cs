@@ -1,5 +1,6 @@
 ﻿using libreria_JOVT.Data.Services;
 using libreria_JOVT.Data.ViewModels;
+using libreria_JOVT.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,6 +24,10 @@ namespace libreria_JOVT.Controllers
             {
                 var newPublisher = _publishersService.AddPublisher(publisher);
                 return Created(nameof(AddPublisher), newPublisher);
+            }
+            catch(PublisherNameException ex)
+            {
+                return BadRequest($"{ex.Message}, Nombre de la editoria: {ex.PublisherName}");
             }
             catch (Exception ex)
             {

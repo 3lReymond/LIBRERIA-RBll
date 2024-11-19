@@ -1,7 +1,9 @@
 ﻿using libreria_JOVT.Data.Models;
 using libreria_JOVT.Data.ViewModels;
+using libreria_JOVT.Exceptions;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace libreria_JOVT.Data.Services
 {
@@ -16,6 +18,8 @@ namespace libreria_JOVT.Data.Services
         //metodo para que nos permita agregar un nuevo editor a la BD
         public Publisher AddPublisher(PublisherVM publisher)
         {
+            if (StringStartsWithNumber(publisher.Name)) throw new PublisherNameException("El nombre empieza con un numero",
+                publisher.Name);
             var _publisher = new Publisher()
             {
                 Name = publisher.Name
@@ -54,5 +58,6 @@ namespace libreria_JOVT.Data.Services
                 throw new Exception($"La editora con el Id: {id} no existe!");
             }
         }
+        private bool StringStartsWithNumber(string name) => (Regex.IsMatch(name, @"^\d"));
     }
 }
