@@ -1,5 +1,6 @@
 ﻿using libreria_JOVT.Data.Models;
 using libreria_JOVT.Data.ViewModels;
+using System;
 using System.Linq;
 
 namespace libreria_JOVT.Data.Services
@@ -47,6 +48,10 @@ namespace libreria_JOVT.Data.Services
             {
                 _context.Publishers.Remove(_publisher);
                 _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception($"La editora con el Id: {id} no existe!");
             }
         }
     }
