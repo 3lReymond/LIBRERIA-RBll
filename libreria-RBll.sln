@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "libreria-RBll", "libreria-RBll\libreria-RBll.csproj", "{C53F550B-DD67-4661-99D5-6ABD24CC6473}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C53F550B-DD67-4661-99D5-6ABD24CC6473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53F550B-DD67-4661-99D5-6ABD24CC6473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C53F550B-DD67-4661-99D5-6ABD24CC6473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C53F550B-DD67-4661-99D5-6ABD24CC6473}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED41D890-781A-4F8A-B872-D007744BC557}
+	EndGlobalSection
+EndGlobal
